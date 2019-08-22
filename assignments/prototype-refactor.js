@@ -37,7 +37,7 @@ class Person{
         if (this.stomach.length > 0) this.stomach = [];
     }
 }
-var Meg = new Person('Megan', 21);
+let Meg = new Person('Megan', 21);
 //TEST
 // console.log(Meg);
 // console.log(Meg.stomach);
@@ -61,27 +61,39 @@ TASK 2
 
 */
 
-function Car(model, name, make) {
-this.model= model;
-this.name= name;
-this.make = make;
-this.odometer = 0;
-this.canDrive = true;
+class Car{
+    constructor(model, name, make){
+        this.model= model;
+        this.name= name;
+        this.make = make;
+        this.odometer = 0;
+        this.canDrive = true;
+    }
+    drive(distance){
+        if (!this.canDrive) {
+             return `I crashed at ${this.odometer} miles!`;
+        }
+        this.odometer += distance;
+    }
+    crash() {
+        this.canDrive = false;
+    }
+    repair() {
+        this.canDrive = true;
+    }
 }
-Car.prototype.drive = function(distance) {
-if (this.canDrive === false) {
-  return `I crashed at ${this.odometer} miles!`;
-}
-this.odometer += distance;
-}
-Car.prototype.crash = function() {
-this.canDrive = false;
-}
-Car.prototype.repair = function() {
-this.canDrive = true;
-}
+let newCar = new Car ('Toyota', 'Yarris', 'Blablabla');
 
-var newCar = new Car ('Toyota', 'Yarris', 'Blablabla');
+/* TEST
+console.log(newCar);
+newCar.drive(20);
+console.log(newCar.odometer);// --> should return 20
+newCar.crash();// --> should return I crashed at 20 miles!
+newCar.repair();
+newCar.drive(40);
+newCar.odometer; // --> should return 60
+*/
+
 /*
 TASK 3
 
@@ -90,15 +102,10 @@ TASK 3
 - Babies should have the ability to play, which persons don't.
 - By playing, a string is returned with some text of your choosing.
 */
-function Baby(name, age) {
-  Person.call(this, name, age);
+class Baby extends Person {
+    playing() {  return `I am playing with my train`; }
 } 
 
-Baby.prototype = Object.create(Person.prototype);
-
-Baby.prototype.playing = function() {
-  return `I am playing with my train`;
-}
 
   var newBaby = new Baby('Joe', 1);
 /*
