@@ -80,7 +80,8 @@ class Student extends Person{
         return `${this.name} has begun a sprint challenge on ${subject}`;
     }
 }
-let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
+//TEST
+//let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
 
 // #### Project Manager
 
@@ -106,3 +107,5 @@ class ProjectManager extends Instructor {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+//TEST
+//let newPM = new ProjectManager('Alice', 31, 'Italy', 'CS', 'C+', 'Blaaaaaaa', 'WEB20', 'Johnny');
