@@ -105,9 +105,10 @@ TASK 3
 class Baby extends Person {
     playing() {  return `I am playing with my train`; }
 } 
+let newBaby = new Baby('Joe', 1);
+//TEST
+// console.log(newBaby) --> returns baby object with name Joe, age 1, playing method & inherits greet, eat and poop from Person class
 
-
-  var newBaby = new Baby('Joe', 1);
 /*
 TASK 4
 
@@ -117,44 +118,45 @@ complicated one with lots of state. Surprise us!
 
 */
 
-function Library(name, area, postCode) {
-this.name = name;
-this.area = area;
-this.postCode = postCode;
-this.books = [];
-}
-Library.prototype.addBook = function(book) {
-this.books.push(book);
-}
-
-Library.prototype.checkoutBook = function(book) {
-// var bookFound = this.books.filter(book => book.ISBN === bookISBN);
-  var isFound = this.books.includes(book);
-  if(isFound) {
-    book.isCheckedOut = true; 
-    var bookIndex = this.books.indexOf(book);
-    this.books.splice(bookIndex,1);
-    return 'You have checked out ' + book.name;
-  } else {
-    return "This book isnt available right now";
-  }
-}
-
-function Book(name, area, postCode, author, ISBN) {
-Library.call(this, name, area, postCode);
-this.name = name;
-this.author = author;
-this.ISBN = ISBN; 
-this.isCheckedOut = false;
+class Library{
+    constructor(libName, area, postCode){
+        this.libName = libName;
+        this.area = area;
+        this.postCode = postCode;
+        this.books = [];
+    }
+    addBook(book) {
+        this.books.push(book);
+    }
+    checkoutBook(book){
+        let isFound = this.books.includes(book);
+        if(isFound) {
+          book.isCheckedOut = true; 
+          let bookIndex = this.books.indexOf(book);
+          this.books.splice(bookIndex,1);
+          return `You have checked out ${book.bookName}`;
+        } else {
+          return  `${book.bookName} isnt available right now :(`;
+        }
+    }
 }
 
-Book.prototype = Object.create(Library.prototype);
+class Book extends Library{
+    constructor(libName, area, postCode, bookName, author, ISBN) {
+        super( libName, area, postCode);
+        this.bookName = bookName;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.isCheckedOut = false;
+    }
+}
 
 //TEST
-var myLibrary = new Library('Fingal Library', 'Malahide', 'K36 PK20');
-var book1 = new Book('Eloquent JavaScript', 'Fingal Library', 'K36PK40', 'Marijn Haverbeke', '1045435M');
-var book2 = new Book('Book2', 'New Library', 'K36PK41', 'Megan Ennis', '10465655M');
-myLibrary.addBook(book1);
-myLibrary.addBook(book2);
-myLibrary.checkoutBook('10465655M');
+let megsLibrary = new Library('Megans Library', 'Malahide', 'K36 PK20');
+let book1 = new Book('Megans Library', 'Malahide', 'K36 PK20', 'Eloquent JavaScript', 'Marijn Haverbeke', '1045435M');
 
+// megsLibrary; --> books array shouldnt hold anything
+// megsLibrary.addBook(book1);
+// megsLibrary; --> books array should hold book 1 now
+// megsLibrary.checkoutBook(book1); --> should return you have checked out + book, book array should be empty again
+// megsLibrary.checkoutBook(book1); --> should return book name + isnt available right now :(
