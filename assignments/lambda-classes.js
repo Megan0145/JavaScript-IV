@@ -95,6 +95,13 @@ class Student extends Person{
     sprintChallenge(subject) {
         return `${this.name} has begun a sprint challenge on ${subject}`;
     }
+    graduate(){
+        if(this.grade >= 70){
+            return `Congratulations, ${this.name}! You have graduated Lambda School ${this.className}`;
+        } else {
+            return `Keep studying ${this.name}, you are not ready to graduate ${this.className}!`;
+        }
+    }
 }
 //TEST
 let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
