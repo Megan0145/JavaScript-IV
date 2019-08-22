@@ -17,6 +17,8 @@ class Person {
         return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
+//TEST
+// let newPerson = new Person('Meg', 21, 'Donabate');
 
 // #### Instructor
 
@@ -45,6 +47,9 @@ class Instructor extends Person{
     }
 }
 
+//TEST
+//let newInstructor = new Instructor('Johnny', 40, 'Dun Laoghaire', 'Frontend', 'CSS', 'Bla Bla Bla');
+
 // #### Student
 
 // * Now we need some students!
@@ -66,7 +71,7 @@ class Student extends Person{
         this.favSubjects = favSubjects;
     }    
     listsSubjects() {
-        this.favSubjects.forEach((subject) => {return subject;});
+        this.favSubjects.forEach((subject) => {console.log(subject)});
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
@@ -75,6 +80,7 @@ class Student extends Person{
         return `${this.name} has begun a sprint challenge on ${subject}`;
     }
 }
+let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
 
 // #### Project Manager
 
