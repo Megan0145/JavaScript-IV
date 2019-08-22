@@ -30,6 +30,21 @@ class Person {
 //   * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 //   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
+class Instructor extends Person{
+    constructor(name, age, location, speciality, favLanguage, catchPhrase){
+        super(name, age, location);
+        this.speciality = speciality;
+        this.favLanguage = favLanguage;
+        this.catchPhrase = catchPhrase;
+    }
+    demo(subject) {
+        return `Today we are learning about ${subject}`;
+    }
+    grade(student, subject){
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+}
+
 // #### Student
 
 // * Now we need some students!
