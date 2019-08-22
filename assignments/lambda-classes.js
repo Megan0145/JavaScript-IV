@@ -86,3 +86,17 @@ class Student extends Person{
 // * ProjectManagers have the following Methods:
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+
+class ProjectManager extends Instructor {
+    constructor(name, age, location, speciality, favLanguage, catchPhrase, gradClassName, favInstructor){
+        super(name, age, location, speciality, favLanguage, catchPhrase);
+        this.gradClassName = gradClassName;
+        this.favInstructor = favInstructor;
+    }
+    standUp(slackChannel) {
+        return `${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`;
+    }
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+}
