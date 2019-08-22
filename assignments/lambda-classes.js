@@ -45,10 +45,16 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    //this generates a random number from -10 to 10
+    //the condition in the if statement ensures that the students grade is over ten so that if the function invoked generates -10 as the random number, the student's grade cannot go into minus
+    //similarly the student's grade cannot be over 90 when the function is invoked which dissalows them from getting a grade above 100 if the random number generated is 10
+    randomlyAssignGrade(student) {
+        if(student.grade < 89 && student.grade > 10){ student.grade += Math.floor(Math.random() * 21) - 10; };     
+    }
 }
 
 //TEST
-//let newInstructor = new Instructor('Johnny', 40, 'Dun Laoghaire', 'Frontend', 'CSS', 'Bla Bla Bla');
+let newInstructor = new Instructor('Johnny', 40, 'Dun Laoghaire', 'Frontend', 'CSS', 'Bla Bla Bla');
 
 // #### Student
 
@@ -63,12 +69,22 @@ class Instructor extends Person{
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
+// #### Stretch Problem
+
+// * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+// * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+// * Add a graduate method to a student.
+//   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+//   * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+
+
 class Student extends Person{
-    constructor(name, age, location, previousBackground, className, favSubjects ){
+    constructor(name, age, location, previousBackground, className, favSubjects, grade ){
         super(name, age, location);
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = favSubjects;
+        this.grade = 60;
     }    
     listsSubjects() {
         this.favSubjects.forEach((subject) => {console.log(subject)});
@@ -81,7 +97,7 @@ class Student extends Person{
     }
 }
 //TEST
-//let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
+let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
 
 // #### Project Manager
 
