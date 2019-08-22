@@ -58,6 +58,24 @@ class Instructor extends Person{
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
+class Student extends Person{
+    constructor(name, age, location, previousBackground, className, favSubjects ){
+        super(name, age, location);
+        this.previousBackground = previousBackground;
+        this.className = className;
+        this.favSubjects = favSubjects;
+    }    
+    listsSubjects() {
+        this.favSubjects.forEach((subject) => {return subject;});
+    }
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(subject) {
+        return `${this.name} has begun a sprint challenge on ${subject}`;
+    }
+}
+
 // #### Project Manager
 
 // * Now that we have instructors and students, we'd be nowhere without our PM's
