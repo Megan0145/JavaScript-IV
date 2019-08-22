@@ -18,7 +18,9 @@ class Person {
     }
 }
 //TEST
-// let newPerson = new Person('Meg', 21, 'Donabate');
+let newPerson1 = new Person('Meg', 21, 'Donabate');
+let newPerson2 = new Person('Lola', 18, 'Howth');
+let newPerson3 = new Person('Jack', 27, 'Sutton');
 
 // #### Instructor
 
@@ -54,7 +56,9 @@ class Instructor extends Person{
 }
 
 //TEST
-let newInstructor = new Instructor('Johnny', 40, 'Dun Laoghaire', 'Frontend', 'CSS', 'Bla Bla Bla');
+let newInstructor1 = new Instructor('Johnny', 40, 'Dun Laoghaire', 'Frontend', 'CSS', 'Right Out of the Gate');
+let newInstructor2 = new Instructor('Catherine', 51, 'Rathgar', 'iOS Development', 'Ruby on Rails', 'Swinging For the Fences');
+let newInstructor3 = new Instructor('Stefan', 38, 'Lucan', 'Computer Architecture', 'JS', 'Keep On Truckin');
 
 // #### Student
 
@@ -69,13 +73,6 @@ let newInstructor = new Instructor('Johnny', 40, 'Dun Laoghaire', 'Frontend', 'C
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
-// #### Stretch Problem
-
-// * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-// * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-// * Add a graduate method to a student.
-//   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-//   * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 
 
 class Student extends Person{
@@ -104,7 +101,9 @@ class Student extends Person{
     }
 }
 //TEST
-let newStudent = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
+let newStudent1 = new Student('Sarah', 24, 'Dublin', 'MSc in Pharmaceuticals', 'WEBEU3', ['Web Fundamentals','CS','Advanced CSS']);
+let newStudent2 = new Student('Tony', 29, 'Manila', 'BSc in Computing', 'WEBEU1', ['JS1','Responsive Design','Advanced CSS']);
+let newStudent3 = new Student('Peter', 38, 'Dublin', 'MSc in Pharmaceuticals', 'WEBE2', ['Data Science','UX/UI','iOS Development']);
 
 // #### Project Manager
 
@@ -131,4 +130,14 @@ class ProjectManager extends Instructor {
     }
 }
 //TEST
-//let newPM = new ProjectManager('Alice', 31, 'Italy', 'CS', 'C+', 'Blaaaaaaa', 'WEB20', 'Johnny');
+let newPM1 = new ProjectManager('Alice', 31, 'Italy', 'CS', 'C+', 'Theres No I in Team', 'WEB20', 'Johnny');
+let newPM2 = new ProjectManager('Dylan', 26, 'Spain', 'Android Development', 'JS', 'My Cup of Tea', 'WEB22', 'Catherine');
+let newPM3 = new ProjectManager('Jamie', 42, 'Ireland', 'CS', 'HTML', 'Rain on Your Parade', 'WEB17', 'Stefan');
+
+// #### Stretch Problem
+
+// * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+// * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+// * Add a graduate method to a student.
+//   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+//   * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
